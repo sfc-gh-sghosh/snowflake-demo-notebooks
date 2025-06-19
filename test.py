@@ -1,14 +1,9 @@
-from snowflake.snowpark.session import Session
 from snowflake.snowpark.types import StringType
 from snowflake.snowpark.functions import sproc
 
-
-@sproc(
-    name="hello_from_snowpark",
-    return_type=StringType(),
-    input_types=[],  
-    replace=True,
-    packages=["snowflake-snowpark-python"]
-)
-def hello_from_snowpark(session):
+@sproc(return_type=StringType(), packages=["snowflake-snowpark-python"])
+def hello_from_snowpark(session_):
     return "Hello from Snowpark!"
+
+# Call immediately like in test1.py
+hello_from_snowpark()
