@@ -9,7 +9,7 @@ from snowflake.snowpark.functions import sproc
     packages=["snowflake-snowpark-python"]
 )
 # FIX: Remove quotes from type hints
-def hello_from_snowpark(session: Session) -> str: 
+def hello_from_snowpark(session) -> str: 
     return f"Hello from Snowpark!"
 
 result = session.call("hello_from_snowpark")
