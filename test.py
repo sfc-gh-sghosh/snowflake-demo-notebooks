@@ -1,16 +1,13 @@
-from snowflake.snowpark.session import Session
 from snowflake.snowpark.types import StringType
 from snowflake.snowpark.functions import sproc
+from snowflake.snowpark.session import Session
 
 @sproc(
     name="hello_from_snowpark",
     return_type=StringType(),
-    replace="true",
+    input_types=[],  # No arguments other than session
+    replace=True,
     packages=["snowflake-snowpark-python"]
 )
-# FIX: Remove quotes from type hints
-def hello_from_snowpark(session) -> str: 
-    return f"Hello from Snowpark!"
-
-result = session.call("hello_from_snowpark")
-print(result)
+def hello_from_snowpark(session):
+    return "Hello from Snowpark!"
