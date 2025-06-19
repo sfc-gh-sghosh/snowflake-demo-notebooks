@@ -1,4 +1,5 @@
 
+from __future__ import annotations
 from snowflake.snowpark import Session
 from snowflake.snowpark.types import StringType
 from snowflake.snowpark.functions import sproc
